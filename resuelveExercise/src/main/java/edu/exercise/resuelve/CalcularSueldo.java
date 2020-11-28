@@ -10,7 +10,37 @@ public class CalcularSueldo {
     private List<Nivel> listaNiveles = new ArrayList<Nivel>();
 
 
-    
+
+    public void calcularSalario(List<Jugador> jugadores){
+        calcularPorcetajesBonoEquipo();
+        for(Jugador jugador: jugadores){
+            float bonoBase = jugador.getBono() /2;
+            float bonoReal = (bonoBase * calcularPorcentajeBonoJugador(jugador) / 100) + (bonoBase * porcentajeBonoEquipo /100);
+            jugador.setBonoReal(bonoReal);
+            jugador.setSueldoCompleto(bonoReal + jugador.getSueldo());
+        }
+    }
+    public void calcularPorcetajesBonoEquipo(){
+        if(totalGolesPorMes >= totalGolesMesNecesarios)
+            porcentajeBonoEquipo = 100.f;
+        else
+            porcentajeBonoEquipo = (totalGolesPorMes * 100) / totalGolesMesNecesarios;
+
+    }
+    public float calcularPorcentajeBonoJugador(Jugador jugador){
+        int golesJugador = jugador.getGoles();
+        int golesNecesarios = obtenerGolesPorNivel(jugador.getNivel());
+
+        if(golesJugador >= golesNecesarios) return 100.f;
+        else
+            return (golesJugador * 100) / golesNecesarios;
+    }
+    public void calcularGoles(List<Jugador> jugadores){
+        for(Jugador jugador: jugadores){
+            totalGolesMesNecesarios+= obtenerGolesPorNivel(jugador.getNivel());
+            totalGolesPorMes+= jugador.getGoles();
+        }
+    }
     public int obtenerGolesPorNivel(String nivel){
         return listaNiveles.stream()
                 .filter(index -> index.getNivel().contains(nivel))
