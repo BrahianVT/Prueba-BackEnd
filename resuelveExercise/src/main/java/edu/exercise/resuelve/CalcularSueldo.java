@@ -6,8 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 public class CalcularSueldo {
-    private Map<String, Float> totalGolesMesNecesarios = new HashMap<>();
-    private Map<String, Float> totalGolesPorMes = new HashMap<>();
+    private Map<String, Integer> totalGolesMesNecesarios = new HashMap<>();
+    private Map<String, Integer> totalGolesPorMes = new HashMap<>();
     private Map<String, Float> porcentajeBonoEquipo = new HashMap<>();
     private List<Nivel> listaNiveles = new ArrayList<Nivel>();
 
@@ -21,13 +21,11 @@ public class CalcularSueldo {
         }
     }
     public void calcularPorcetajesBonoEquipo(List<Jugador> jugadores){
-        calcularGoles(jugadores);
-
-        for(Map.Entry<String, Float> equipo : totalGolesPorMes.entrySet()){
+        for(Map.Entry<String, Integer> equipo : totalGolesPorMes.entrySet()){
             if(equipo.getValue() >= totalGolesMesNecesarios.get(equipo.getKey()))
                 porcentajeBonoEquipo.put(equipo.getKey(), 100f);
             else {
-                porcentajeBonoEquipo.put(equipo.getKey(), equipo.getValue() * 100 / totalGolesMesNecesarios.get(equipo.getKey()));
+                porcentajeBonoEquipo.put(equipo.getKey(), equipo.getValue() * 100 / (float) totalGolesMesNecesarios.get(equipo.getKey()));
             }
         }
     }
@@ -41,9 +39,9 @@ public class CalcularSueldo {
     }
     public void calcularGoles(List<Jugador> jugadores){
         for(Jugador jugador: jugadores){
-           float golesNecesariosPorEquipo = totalGolesMesNecesarios.getOrDefault(jugador.getEquipo(), 0.0f) +
+           Integer golesNecesariosPorEquipo = totalGolesMesNecesarios.getOrDefault(jugador.getEquipo(), 0) +
                    obtenerGolesPorNivel(jugador.getNivel());
-           float golesPorEquipo = totalGolesPorMes.getOrDefault(jugador.getEquipo(), 0.0f) + jugador.getGoles();
+           Integer golesPorEquipo = totalGolesPorMes.getOrDefault(jugador.getEquipo(), 0) + jugador.getGoles();
            totalGolesMesNecesarios.put(jugador.getEquipo(), golesNecesariosPorEquipo);
            totalGolesPorMes.put(jugador.getEquipo(), golesPorEquipo);
         }
@@ -61,19 +59,19 @@ public class CalcularSueldo {
         listaNiveles.add(new Nivel("Cuauh", 20));
     }
 
-    public Map<String, Float> getTotalGolesMesNecesarios() {
+    public Map<String, Integer> getTotalGolesMesNecesarios() {
         return totalGolesMesNecesarios;
     }
 
-    public void setTotalGolesMesNecesarios(Map<String, Float> totalGolesMesNecesarios) {
+    public void setTotalGolesMesNecesarios(Map<String, Integer> totalGolesMesNecesarios) {
         this.totalGolesMesNecesarios = totalGolesMesNecesarios;
     }
 
-    public Map<String, Float> getTotalGolesPorMes() {
+    public Map<String, Integer> getTotalGolesPorMes() {
         return totalGolesPorMes;
     }
 
-    public void setTotalGolesPorMes(Map<String, Float> totalGolesPorMes) {
+    public void setTotalGolesPorMes(Map<String, Integer> totalGolesPorMes) {
         this.totalGolesPorMes = totalGolesPorMes;
     }
 
