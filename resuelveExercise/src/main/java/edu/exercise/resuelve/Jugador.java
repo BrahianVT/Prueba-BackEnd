@@ -1,5 +1,9 @@
 package edu.exercise.resuelve;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Clase que representa una entidad jugador
  * @Author Brahian Velazquez
@@ -10,7 +14,10 @@ public class Jugador {
     private int goles;
     private Float sueldo;
     private Float bono;
+
+    @JsonIgnore
     private Float bonoReal;
+    @JsonAlias("sueldo_completo")
     private Float sueldoCompleto;
 
     private String equipo;
