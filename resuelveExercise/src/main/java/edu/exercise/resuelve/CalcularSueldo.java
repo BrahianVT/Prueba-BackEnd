@@ -5,12 +5,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * Clase que calcula los bonos reales a nivel equipo y jugador, para poder calcular el sueldo completo de los jugadores
+ * @author Brahian Velazquez
+ * */
 public class CalcularSueldo {
     private Map<String, Integer> totalGolesMesNecesarios = new HashMap<>();
     private Map<String, Integer> totalGolesPorMes = new HashMap<>();
     private Map<String, Float> porcentajeBonoEquipo = new HashMap<>();
     private List<Nivel> listaNiveles = new ArrayList<Nivel>();
 
+    /**
+     * Calcula el bono real de todos los jugadores , tambien el sueldo completo
+     * @param jugadores
+     * */
     public void calcularSalario(List<Jugador> jugadores){
         calcularPorcetajesBonoEquipo(jugadores);
         for(Jugador jugador: jugadores){
@@ -20,6 +28,10 @@ public class CalcularSueldo {
             jugador.setSueldoCompleto(bonoReal + jugador.getSueldo());
         }
     }
+    /**
+     *  Calcula el porcentaje de bono de cada equipo mediante regla de tres.
+     * @param jugadores
+     **/
     public void calcularPorcetajesBonoEquipo(List<Jugador> jugadores){
         for(Map.Entry<String, Integer> equipo : totalGolesPorMes.entrySet()){
             if(equipo.getValue() >= totalGolesMesNecesarios.get(equipo.getKey()))
@@ -29,6 +41,11 @@ public class CalcularSueldo {
             }
         }
     }
+    /**
+     *   Calcula el porcentaje de bono del jugador mediante regla de tres
+     *   @param jugador
+     *   @return porcentajeBonoIndividual
+     **/
     public float calcularPorcentajeBonoJugador(Jugador jugador){
         int golesJugador = jugador.getGoles();
         int golesNecesarios = obtenerGolesPorNivel(jugador.getNivel());
@@ -37,6 +54,10 @@ public class CalcularSueldo {
         else
             return (golesJugador * 100) / golesNecesarios;
     }
+    /**
+     * Calcula los goles por mes y goles necesarios por mes de todos los jugadores
+     *
+     * */
     public void calcularGoles(List<Jugador> jugadores){
         for(Jugador jugador: jugadores){
            Integer golesNecesariosPorEquipo = totalGolesMesNecesarios.getOrDefault(jugador.getEquipo(), 0) +
@@ -46,12 +67,22 @@ public class CalcularSueldo {
            totalGolesPorMes.put(jugador.getEquipo(), golesPorEquipo);
         }
     }
+
+    /**
+     * Es base al nivel obtiene los goles necesario por mes para un jugador
+     * @param nivel
+     * @return goles
+     * */
     public int obtenerGolesPorNivel(String nivel){
         return listaNiveles.stream()
                 .filter(index -> index.getNivel().contains(nivel))
                 .findFirst().orElse(null)
                 .getGolesPorMes();
     }
+
+    /**
+     * Llena la lista con los niveles definidos
+     * */
     public void llenarListaNiveles(){
         listaNiveles.add(new Nivel("A", 5));
         listaNiveles.add(new Nivel("B", 10));

@@ -1,5 +1,9 @@
 package edu.exercise.resuelve;
 
+/**
+ * Clase que representa los niveles de los futbolistass
+ * @author Brahian Velazquez
+ * */
 public class Nivel {
     private String nivel;
     private int golesPorMes;

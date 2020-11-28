@@ -2,6 +2,10 @@ package edu.exercise.resuelve;
 
 import java.util.List;
 
+/**
+ * Clase principal que inicial el programa donde se leer la entrada del archivo Json y donde se guarda el resultado
+ * @author Brahian Velazquez
+ * */
 public class Main {
 
     public  static void main(String[] args) {
