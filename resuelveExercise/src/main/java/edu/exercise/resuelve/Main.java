@@ -1,5 +1,9 @@
 package edu.exercise.resuelve;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.List;
 
 /**
@@ -7,20 +11,24 @@ import java.util.List;
  * @author Brahian Velazquez
  * */
 public class Main {
+    private static final Logger logger = LogManager.getLogger(Main.class);
 
     public  static void main(String[] args) {
-        Main main = new Main();
 
         JsonUtilities cargar = new JsonUtilities();
-        List<Jugador> jugadores = cargar.cargarArchivoJson("input.json");
+        LoadProperties properties = new LoadProperties();
 
-        System.out.println("ARCHIVO CARGADO CORRECTAMENTE PROCESANDO ...");
+        List<Jugador> jugadores = cargar.cargarArchivoJson(properties.getPropFile().getProperty("fileEntrada"));
+
+        logger.debug("ARCHIVO CARGADO CORRECTAMENTE, PROCESANDO ...");
+
+
         CalcularSueldo calcularSueldo = new CalcularSueldo();
         calcularSueldo.llenarListaNiveles();
         calcularSueldo.calcularGoles(jugadores);
         calcularSueldo.calcularSalario(jugadores);
-        cargar.guardarArchivoJsonSalida("output.json", jugadores);
+        cargar.guardarArchivoJsonSalida(properties.getPropFile().getProperty("fileSalida"), jugadores);
 
-        System.out.println("ARCHIVO GUARDADO CORRECTAMENTE PROCESANDO ...");
+        logger.debug("ARCHIVO GUARDADO CORRECTAMENTE PROCESANDO ...");
     }
 }

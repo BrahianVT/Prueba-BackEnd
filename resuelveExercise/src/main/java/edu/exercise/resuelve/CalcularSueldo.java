@@ -1,5 +1,8 @@
 package edu.exercise.resuelve;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -10,6 +13,8 @@ import java.util.Map;
  * @author Brahian Velazquez
  * */
 public class CalcularSueldo {
+    private static Logger logger = LogManager.getLogger(CalcularSueldo.class);
+
     private Map<String, Integer> totalGolesMesNecesarios = new HashMap<>();
     private Map<String, Integer> totalGolesPorMes = new HashMap<>();
     private Map<String, Float> porcentajeBonoEquipo = new HashMap<>();
@@ -20,6 +25,7 @@ public class CalcularSueldo {
      * @param jugadores
      * */
     public void calcularSalario(List<Jugador> jugadores){
+        logger.debug("calculando los salarios de los jugadores ...");
         calcularPorcetajesBonoEquipo(jugadores);
         for(Jugador jugador: jugadores){
             float bonoBase = jugador.getBono() /2;
@@ -33,6 +39,7 @@ public class CalcularSueldo {
      * @param jugadores
      **/
     public void calcularPorcetajesBonoEquipo(List<Jugador> jugadores){
+        logger.debug("calculando  los Porcetajes de Bono por Equipo ...");
         for(Map.Entry<String, Integer> equipo : totalGolesPorMes.entrySet()){
             if(equipo.getValue() >= totalGolesMesNecesarios.get(equipo.getKey()))
                 porcentajeBonoEquipo.put(equipo.getKey(), 100f);
@@ -47,6 +54,7 @@ public class CalcularSueldo {
      *   @return porcentajeBonoIndividual
      **/
     public float calcularPorcentajeBonoJugador(Jugador jugador){
+        logger.debug("calculando  los Porcetajes de Bono por Jugador ...");
         int golesJugador = jugador.getGoles();
         int golesNecesarios = obtenerGolesPorNivel(jugador.getNivel());
 
@@ -59,6 +67,7 @@ public class CalcularSueldo {
      *
      * */
     public void calcularGoles(List<Jugador> jugadores){
+        logger.debug("calculando  los goles por jugador y por Equipo ...");
         for(Jugador jugador: jugadores){
            Integer golesNecesariosPorEquipo = totalGolesMesNecesarios.getOrDefault(jugador.getEquipo(), 0) +
                    obtenerGolesPorNivel(jugador.getNivel());

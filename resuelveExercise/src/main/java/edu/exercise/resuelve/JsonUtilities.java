@@ -4,16 +4,21 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-
+/**
+ * Clase que lee y escribe un archivo Json
+ * @author Brahian Velazquez
+ * */
 public class JsonUtilities {
     ObjectMapper objectMapper = new ObjectMapper();
-
+    private static Logger logger = LogManager.getLogger(JsonUtilities.class);
     /**
-     * Carga el archivo Json para convertirlo a una lista de objetos del tipo jugador el archivo, debe estar en la misma carpeta que el JAR
+     * Carga el archivo Json para convertirlo a una lista de objetos del tipo jugador , este archivo debe estar en la misma carpeta que el JAR
      * En caso de que halla un error en la lectura del archivo terminara el programa
      * @param nombreArchivo
      * @return jugadores
@@ -26,8 +31,8 @@ public class JsonUtilities {
         try {
             jugadores = objectMapper.readValue(file, new TypeReference<List<Jugador>>() {});
         } catch (IOException e) {
-            System.out.println(" NO SE ENCONTRO ARCHIVO O NO PUDO LEER EL ARCHIVO : " + nombreArchivo);
-            e.printStackTrace();
+            logger.debug(" NO SE ENCONTRO ARCHIVO O NO PUDO LEER EL ARCHIVO : " + nombreArchivo);
+            logger.debug(e.getMessage());
             System.exit(0);
         }
 
@@ -43,8 +48,8 @@ public class JsonUtilities {
         try {
             objectMapper.writeValue(new File(nombreArchivo), jugadores);
         } catch (IOException e) {
-            System.out.println(" ERROR AL TRATAE DE GUARDAR EL ARCHIVO : " + nombreArchivo);
-            e.printStackTrace();
+            logger.debug(" ERROR AL TRATAE DE GUARDAR EL ARCHIVO : " + nombreArchivo);
+            logger.debug(e.getMessage());
         }
     }
 }

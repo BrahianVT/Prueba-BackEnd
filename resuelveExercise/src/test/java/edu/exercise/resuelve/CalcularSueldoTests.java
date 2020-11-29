@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Pruebas unitarias para el calculo de los salarios
  * */
 
-public class CalcularSueldoTest {
+public class CalcularSueldoTests {
     CalcularSueldo calcularSueldo;
 
     @BeforeEach
