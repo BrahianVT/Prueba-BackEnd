@@ -33,7 +33,8 @@ Posteriormente ir a la carpeta base del proyecto y por línea de comandos **CMD*
 mvn compile assembly:single
 ```
 
-Esto generara una nueva carpeta target (ya incluida en el repositorio) y encontrara adentro un archivo llamado: **resuelveExercise.jar** 
+### Como Ejecutar el proyecto 
+En la carpeta target (ya incluida en el repositorio)  encontrará adentro un archivo llamado: **resuelveExercise.jar** 
 Mediante CMD navegar hasta la misma carpeta donde se encuentre el jar y ejecutar el comando:
 
 ```
