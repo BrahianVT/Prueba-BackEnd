@@ -41,7 +41,7 @@ Mediante CMD navegar hasta la misma carpeta donde se encuentre el jar y ejecutar
 java -jar resuelveExercise.jar
 ```
 
-Esto ejecutara el programa pra calcular los salarios  y creara el archivo **output.json** 
+Esto ejecutará el programa para calcular los salarios  y creara el archivo **output.json** 
 
 **Antes de ejecutar el programa asegúrese que el archivo input.json este en la misma carpeta que el jar**
 
