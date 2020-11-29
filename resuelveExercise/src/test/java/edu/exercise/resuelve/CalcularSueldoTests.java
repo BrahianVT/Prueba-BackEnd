@@ -11,11 +11,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * Pruebas unitarias para el calculo de los salarios
  * */
+
 public class CalcularSueldoTest {
     CalcularSueldo calcularSueldo;
 
     @BeforeEach
-    void setup(){
+    public void setup(){
         calcularSueldo = new CalcularSueldo();
     }
 
