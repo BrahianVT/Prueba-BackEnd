@@ -1,5 +1,7 @@
 package edu.exercise.resuelve;
 
+import edu.exercise.resuelve.Services.CalcularSueldo;
+import edu.exercise.resuelve.entities.Jugador;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

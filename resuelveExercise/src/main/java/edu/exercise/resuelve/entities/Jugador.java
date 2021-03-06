@@ -1,4 +1,4 @@
-package edu.exercise.resuelve;
+package edu.exercise.resuelve.entities;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnore;

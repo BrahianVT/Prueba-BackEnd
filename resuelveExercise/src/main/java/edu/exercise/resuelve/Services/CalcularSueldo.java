@@ -1,7 +1,10 @@
-package edu.exercise.resuelve;
+package edu.exercise.resuelve.Services;
 
+import edu.exercise.resuelve.entities.Jugador;
+import edu.exercise.resuelve.entities.Nivel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +15,7 @@ import java.util.Map;
  * Clase que calcula los bonos reales a nivel equipo y jugador, para poder calcular el sueldo completo de los jugadores
  * @author Brahian Velazquez
  * */
+@Service
 public class CalcularSueldo {
     private static Logger logger = LogManager.getLogger(CalcularSueldo.class);
 

@@ -1,4 +1,4 @@
-package edu.exercise.resuelve;
+package edu.exercise.resuelve.entities;
 
 /**
  * Clase que representa los niveles de los futbolistass
