@@ -1,0 +1,9 @@
+version: '3.6'
+services:
+  restNomina:
+    container_name: restNomina
+    image: rest-nomina:1.0
+    environment:
+      Lang: en_us.utf-8
+    ports:
+      - "8080:8080"

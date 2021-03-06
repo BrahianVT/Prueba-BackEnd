@@ -1,0 +1,6 @@
+edu\exercise\resuelve\entities\Nivel.class
+edu\exercise\resuelve\entities\Jugador.class
+edu\exercise\resuelve\Services\CalcularSueldo.class
+edu\exercise\resuelve\restcontroller\ExceptionHandlerClass.class
+edu\exercise\resuelve\restcontroller\NominaController.class
+edu\exercise\resuelve\Main.class
