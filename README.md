@@ -56,7 +56,7 @@ Para correr el proyecto sin compilarlo solo descargar el archivo .jar [Link](htt
 Y desde CMD use el comando que se dijo anteriormente, sin olvidar el archivo input.json.
 
 
-## Segundo projecto branch restApi  
+## Segundo proYecto branch restApi  
 Para correr este segundo ejemplo primero cambiar de brach.  
 ```
 git checkout restApi
@@ -66,7 +66,7 @@ git checkout restApi
 ![Alt text](img/sol2.png?raw=true " Solution")  
 Esta solucion recibe un json en un servicio RestFul y regresa el response con la respuesta   
 
-### Ejecutar el projecto  
+### Ejecutar el proyecto  
 Asegúrese de haber instalado antes docker-compose. Ir a la base del proyecto [BASE](https://github.com/BrahianVT/Prueba-BackEnd/tree/restApi/resuelveExercise)  
 Ejecute el archivo .bat llamado **assemble.bat** y espere a que levante.  
 Si el servicio levanta correctamente ejecute **docker ps**  y vera el servicio arriba.  
@@ -82,7 +82,7 @@ docker-compose up
 ```
 
 ### Sin usar docker
-Esto projecto se desarrollo con Java utilizando Maven, por lo que si no desea utilizar contenedores Docker, puede ejecutar el proyecto . Vaya a la carpeta Target y ejecute el comando:  
+Este proyecto se desarrollo con Java utilizando Maven, por lo que si no desea utilizar contenedores Docker, puede ejecutar el proyecto . Vaya a la carpeta Target y ejecute el comando:  
 ```
 java -jar resuelveExercise.jar
 ```
