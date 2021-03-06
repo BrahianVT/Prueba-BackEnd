@@ -29,7 +29,7 @@ Y Descargar el proyecto. O si lo desea clonarlo si tiene instalado Git es su com
 git clone https://github.com/BrahianVT/Prueba-BackEnd.git
 ```
 
-## Primer projecto branch principal  
+## Primer projecto branch main  
 # Solucion  
 ![Alt text](img/sol1.png?raw=true " Solution")  
 Esta solucion lee el archivo directamente y escribe un archivo llamado output.json  
@@ -67,12 +67,13 @@ git checkout restApi
 Esta solucion recibe un json en un servicio RestFul y regresa el response con la respuesta   
 
 ### Ejecutar el projecto  
-Asegúrese de haber instalado antes docker-compose. Ejecute el archivo .bat llamado **assemble.bat** y espere a que levante.  
+Asegúrese de haber instalado antes docker-compose. Ir a la base del proyecto [BASE](https://github.com/BrahianVT/Prueba-BackEnd/tree/restApi/resuelveExercise)  
+Ejecute el archivo .bat llamado **assemble.bat** y espere a que levante.  
 Si el servicio levanta correctamente ejecute **docker ps**  y vera el servicio arriba.  
-![Alt text](img/docker.png?raw=true " Solution")  
+![Alt text](img/docker.PNG?raw=true " Solution")  
 
 ### Ajustes Usuarios que no utilizan Windows  
-Desde consola ir a la ruta base del projecto [Link](https://github.com/BrahianVT/Prueba-BackEnd/tree/restApi/resuelveExercise).
+Desde consola ir a la ruta base del proyecto [BASE](https://github.com/BrahianVT/Prueba-BackEnd/tree/restApi/resuelveExercise).
 Asegúrese de haber instalado antes docker-compose y desde consola ejecute:  
 
 ```
