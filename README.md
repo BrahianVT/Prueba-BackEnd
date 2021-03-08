@@ -49,4 +49,3 @@ Una ves levantado el proyecto ir a la url y en el body pege el contenido del arc
 localhost:8080/v1/nomina/calculaNomina  
 Docker  
 192.168.99.100:8080/v1/nomina/calculaNomina  
-
