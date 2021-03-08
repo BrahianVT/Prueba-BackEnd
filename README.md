@@ -26,7 +26,7 @@ Esta solucion recibe un json en un servicio RestFul y regresa el response con la
 ### Ejecutar el projecto  
 Asegúrese de haber instalado antes docker-compose. Ejecute el archivo .bat llamado **assemble.bat** y espere a que levante.  
 Si el servicio levanta correctamente ejecute **docker ps**  y vera el servicio arriba.  
-![Alt text](img/docker.png?raw=true " Solution")  
+![Alt text](img/docker.PNG?raw=true " Solution")  
 
 ### Ajustes Usuarios que no utilizan Windows  
 Desde consola ir a la ruta base del projecto [Link](https://github.com/BrahianVT/Prueba-BackEnd/tree/restApi/resuelveExercise).
